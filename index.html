@@ -1,1 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Emissions Data</title>
+        
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  
+  </head>
+  <body>
+  
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+    <a class="navbar-brand" href="#">Emissions Data</a>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+    <a class="nav-link" href="#">Overview</a>
+            </li>
+            <li class="nav-item">
+    <a class="nav-link" href="#">Page 2</a>
+            </li>
+        </ul>
+    </nav>
+    
+    
+    <h1> Overview of the Data </h1> 
+    <br>
+    <br>
+    <p>The data used in this web app is sourced from the CORGIS Dataset Project, all of which can be found here.
+        The data contains information on the carbon emissions from all countries all around the globe. The carbon
+        emission data ranges from the year 1970-2012. The information records the amount of carbon dioxide, nitrous
+        oxide, as well as methane are released from the power industry, infrastructure of building, transportation,
+        other industries, and other sectors. These are all measured in equivalent kilotons of 
+        CO2.
+        <br>
+        The data rationalizes the emissions in per capita and per GDP. Carbon emissions per capita are measured as the 
+        total amount of carbon dioxide that is emitted by the country as a result of relevant human activities, 
+        divided by the population of the country. Per GDP signifies, per capita gross domestic products, which is 
+        the measurement of a country's economic output per person. (source) </p>
 
