@@ -19,7 +19,7 @@ for (var i = 0; i < limit; i += 1) {
 dataSeries.dataPoints = dataPoints;
 data.push(dataSeries);
 
-//Better to construct options first and then pass it as a parameter
+
 var options = {
 	zoomEnabled: true,
 	animationEnabled: true,
@@ -29,7 +29,7 @@ var options = {
 	axisY: {
 		lineThickness: 1
 	},
-	data: {{ data }} // random data
+	data: {{ data }} 
 };
 
 var chart = new CanvasJS.Chart("chartContainer", options);
