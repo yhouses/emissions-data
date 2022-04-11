@@ -4,8 +4,8 @@
 <script>
 window.onload = function () {
 
-var limit = 100;
-var y = 100;    
+var limit = 2000000;
+var y = 335000;    
 var data = [];
 var dataSeries = { type: "line" };
 var dataPoints = [];
@@ -16,41 +16,30 @@ for (var i = 0; i < limit; i += 1) {
 		y: y
 	});
 }
-dataSeries.dataPoints = dataPoints;
+dataSeries.dataPoints = [ {{ data }} ];
 data.push(dataSeries);
 
-//Better to construct options first and then pass it as a parameter
+
 var options = {
 	zoomEnabled: true,
 	animationEnabled: true,
 	title: {
-		text: "Try Zooming - Panning"
+		text: "Carbon Increase in the United States"
 	},
 	axisY: {
 		lineThickness: 1
 	},
-	data: data  // random data
+	data: data
 };
 
 var chart = new CanvasJS.Chart("chartContainer", options);
 var startTime = new Date();
 chart.render();
 var endTime = new Date();
-document.getElementById("timeToRender").innerHTML = "Time to Render: " + (endTime - startTime) + "ms";
 
 }
 </script>
-<style>
-	#timeToRender {
-		position:absolute; 
-		top: 10px; 
-		font-size: 18px; 
-		font-weight: bold; 
-		background-color: #d85757;
-		padding: 0px 4px;
-		color: #ffffff;
-	}
-</style>
+
 </head>
 <body>
 <div id="chartContainer" style="height: 370px; width: 100%;"></div>
@@ -58,4 +47,3 @@ document.getElementById("timeToRender").innerHTML = "Time to Render: " + (endTim
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
 </body>
-</html>
