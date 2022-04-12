@@ -21,7 +21,6 @@ def format_dict_as_graph_points ():
 @app.route("/response1")
 def home():
     country = get_country_options ()
-    #print(country)
     return render_template('by-country.html', country_options = country, year_options=get_year_options() )
 def get_country_options():
     with open('emissions.json') as demographics_data:
@@ -38,12 +37,27 @@ def home ():
 def get_year_options():
     with open('emissions.json') as demographics_data:
         year = json.load(demographics_data)
-    states = []
-    options = ""
+    years = []
     for y in year:
-        options += Markup ("<option value=\"" + str(y["Year"]) + "\">" + str(y["Year"]) + "</options>")
+        if y["Year"] not in years:
+            years.append(y["Year"])
+    options = ""
+    for y in years:
+        options += Markup ("<option value=\"" + str(y) + "\">" + str(y) + "</options>")
     return options
     
+@app.route("/showFact")
+def home():
+    methane = get_methane_options ()
+    return render_template('by_country.html', year_options = year)
+def get_methane_options():
+    with open('emissions.json') as result_data:
+        methane = json.load(result_data)
+    methane = []
+    for m in methane:
+    if m == ["Year"] + ["Country"]
+        options += Markup (m["Emissions"]["Type"]["CH4"])
+    return options
     
     
 if __name__=="__main__":
