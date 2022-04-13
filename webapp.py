@@ -31,9 +31,6 @@ def get_country_options():
         options += Markup ("<option value=\"" + c["Country"] + "\">" + c["Country"] + "</options>")
     return options
     
-def home ():
-    years = get_year_options ()
-    return render_template('by_country.html', year_options = year)
 def get_year_options():
     with open('emissions.json') as demographics_data:
         year = json.load(demographics_data)
@@ -47,16 +44,17 @@ def get_year_options():
     return options
     
 @app.route("/showFact")
-def home():
+def methane():
     methane = get_methane_options ()
-    return render_template('by_country.html', year_options = year)
+    country = get_country_options ()
+    return render_template('by-country.html', methane = methane, country_options = country, year_options=get_year_options())
 def get_methane_options():
     with open('emissions.json') as result_data:
         methane = json.load(result_data)
-    methane = []
+    options = ""
     for m in methane:
-    if m == ["Year"] + ["Country"]
-        options += Markup (m["Emissions"]["Type"]["CH4"])
+        if str(m["Year"]) == request.args ["Year"] and m["Country"] == request.args["Country"]:
+            options += Markup (m["Emissions"]["Type"]["CH4"])
     return options
     
     
