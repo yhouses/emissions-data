@@ -1,29 +1,10 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-    <title>Emissions Data</title>
-        
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+{% extends "layout.html" %}
 
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+{% set active_page = "home" %}
 
-    <!-- Popper JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{% block content %}
 
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-  
-  </head>
-<body>
-  
-    <br>
-    <br>
-    <br>
-    <br>
 <script>
 window.onload = function () {
 
@@ -68,3 +49,5 @@ var endTime = new Date();
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
 </body>
+
+{% endblock %}

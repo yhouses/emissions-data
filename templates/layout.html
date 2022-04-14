@@ -1,1 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Emissions Data</title>
+        
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  
+  </head>
+  <body>
+  
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+    <a class="navbar-brand" href="/">Emissions Data</a>
+        <ul class="navbar-nav">
+            
+            <li {% if active_page == "home" %} class="nav-item" {% else %}class="nav-item"{% endif %}>
+    <a class="nav-link" href="/">Overview</a>
+            </li>
+            
+            <li {% if active_page == "response2" %} class="nav-item" {% else %}class="nav-item"{% endif %}>
+    <a class="nav-link" href="/response2">Nitrous Oxide Emissions</a>
+            </li>
+            
+            <li {% if active_page == "response1" %} class="nav-item" {% else %}class="nav-item"{% endif %}>
+    <a class="nav-link" href="/response1">Methane Emissions</a>
+            </li>
+            
+            <li {% if active_page == "response" %} class="nav-item" {% endif %}>
+    <a class="nav-link" href="/response">Carbon Dioxide Emissions</a>
+            
+            </li>
+        </ul>
+    </nav>
+    <br>
+    <br>
+    <br> 
+    {% block content %}{% endblock %}
+    
+    </body>
+    </html>
