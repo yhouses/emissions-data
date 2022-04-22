@@ -57,18 +57,22 @@ def get_methane_options():
             options += Markup (m["Emissions"]["Type"]["CH4"])
     return options
     
-    @app.route("/showAmount")
-def methane():
-    nitrous = get_nitrous_options ()
-    country = get_country_options ()
-    return render_template('by-year.html', nitrous = nitrous, country_options = country, year_options=get_year_options())
-def get_methane_options():
+@app.route("/showAmount")
+def center():
+    if "Country" not in request.args:
+        country = get_country_options ()
+        return render_template('by-year.html', country_options = country, year_options=get_year_options() )
+    else: 
+        nitrous = get_nitrous_options ()
+        country = get_country_options ()
+        return render_template('by-year.html', nitrous = nitrous, country_options = country, year_options=get_year_options())
+def get_nitrous_options():
     with open('emissions.json') as result_data:
         nitrous = json.load(result_data)
     options = ""
     for n in nitrous:
-        if str(m["Year"]) == request.args ["Year"] and m["Country"] == request.args["Country"]:
-            options += Markup (m["Emissions"]["Type"]["N2O"])
+        if str(n["Year"]) == request.args ["Year"] and n["Country"] == request.args["Country"]:
+            options += Markup (n["Emissions"]["Type"]["N2O"])
     return options
     
     
